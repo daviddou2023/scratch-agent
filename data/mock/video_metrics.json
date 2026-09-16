@@ -1,0 +1,22 @@
+{
+  "video_001": {
+    "video_id": "video_001",
+    "title": "3个技巧让你的视频开头更抓人",
+    "platform": "douyin",
+    "published_at": "2026-09-10T10:00:00",
+    "views": 120000,
+    "likes": 8600,
+    "shares": 1200,
+    "comments": 430
+  },
+  "video_002": {
+    "video_id": "video_002",
+    "title": "为什么你的视频没人看完",
+    "platform": "douyin",
+    "published_at": "2026-09-12T18:00:00",
+    "views": 45000,
+    "likes": 2100,
+    "shares": 180,
+    "comments": 96
+  }
+}
