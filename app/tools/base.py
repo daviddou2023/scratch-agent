@@ -13,6 +13,9 @@ from typing import Any
 # 这样大模型（LLM）才能准确知道调用该工具时需要传入哪些参数。
 from pydantic import BaseModel
 
+# 导入前面定义的工具统一响应模型
+from app.core.schemas import ToolResponse
+
 class Tool(ABC):
      # 这个名称会被传递给大模型，大模型通过它来识别和决定调用哪个工具。
     name: str
@@ -23,7 +26,8 @@ class Tool(ABC):
 
     # 带有此装饰器的方法没有具体实现逻辑，子类在继承 Tool 时，**必须**重写并实现这个方法
     @abstractmethod
-    async def run(self, **kwargs: Any) -> Any:
+     # 返回类型强制要求为 ToolResponse，保证所有工具的输出格式统一
+    async def run(self, **kwargs: Any) -> ToolResponse:
         # - **kwargs: 接收任意数量的关键字参数，这些参数通常是由大模型根据 args_schema 生成的。
         # - -> Any: 返回值类型不限，可以是字符串、字典或自定义对象。
         raise NotImplementedError

@@ -1,8 +1,15 @@
+
 # 从 pydantic 库中导入 BaseModel（用于定义数据模型）和 Field（用于提供字段的额外验证和元数据）
 from pydantic import BaseModel, Field
 
+# 导入前面定义的工具统一响应
+from app.core.schemas import ToolResponse
+
 # 从当前项目的 app.tools.base 模块中导入 Tool 基类
 from app.tools.base import Tool
+
+# 导入用于构建成功和失败响应的快捷函数
+from app.tools.response import fail, ok
 
 
 # 定义一个继承自 BaseModel 的 Pydantic 模型，用于严格定义和验证 echo 工具的输入参数
@@ -27,15 +34,24 @@ class EchoTool(Tool):
     # 绑定前面定义的参数模型，用于大模型生成参数时的格式校验和 JSON Schema 生成
     args_schema = EchoArgs
 
-    # 定义工具的异步执行方法，接收的参数与 EchoArgs 模型中的字段一一对应
-    async def run(self, text: str, repeat: int = 1) -> dict:
+    # 定义工具的异步执行方法，返回类型限定为ToolRespnse
+    async def run(self, text: str, repeat: int = 1) -> ToolResponse:
+        # 防御性检查：去除首尾空白字符后，如果文本为空，则调用 fail() 返回失败响应
+        if not text.strip():
+            return fail("EMPTY_INPUT", "text 不能为空")
+
         # 核心逻辑：如果重复次数为 1，则直接使用原文本；
         # 否则，将文本重复 repeat 次，并用空格拼接成一个新字符串
         echo_text = text if repeat == 1 else " ".join([text] * repeat)
 
-        # 返回一个字典，包含处理后的文本、实际重复次数以及原始文本的长度
-        return {
-            "echo": echo_text,
-            "repeat": repeat,
-            "length": len(text),
-        }
+        # 调用 ok() 快捷函数，构建并返回一个表示成功的 ToolResponse 对象
+        return ok(
+            # data 字典包含处理后的文本、实际重复次数以及原始文本的长度
+            data={
+                "echo": echo_text,
+                "repeat": repeat,
+                "length": len(text),
+            },
+            # 附带一段人类可读的文本提示，方便大模型或开发者快速查看执行结果
+            text=f"已回显：{echo_text}",
+        )
