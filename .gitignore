@@ -3,3 +3,5 @@
 __pycache__/
 # 忽略所有.pyc编译文件
 *.pyc
+app/core/__pycache__/
+traces/

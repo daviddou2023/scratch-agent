@@ -107,7 +107,7 @@ class CleanCommentsTool(Tool):
     # 工具的唯一标识名称
     name = "clean_comments"
     # 工具的功能描述
-    description = "清洗评论：去重、过滤广告、过滤无意义评论、脱敏。"
+    description = "清洗评论：去重、过滤广告、过滤无意义评论、脱敏。大输出会自动截断落盘，可用 read_tool_output 回查。"
     # 绑定前面定义的入参校验模型
     args_schema = CleanCommentsArgs
 

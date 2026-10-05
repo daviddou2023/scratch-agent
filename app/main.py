@@ -3,14 +3,26 @@ import asyncio
 # 导入 sys 模块，用于读取命令行参数（sys.argv）
 import sys
 
+# 导入全局配置文件
+from app.core.config import settings
+# 导入上下文构建器
+from app.core.context_builder import ContextBuilder
+
 # 导入大语言模型客户端，负责与 LLM 进行对话交互
 from app.core.llm import LLMClient
 # 导入 Agent 运行时引擎，负责驱动"思考-行动-观察"的完整闭环
 from app.core.runtime import AgentRuntime
+
+# 导入上下文压缩器
+from app.core.summarizer import Summarizer
+# 导入todo recap
+from app.core.todo import default_todo_for_creator_review
+
+
 # 导入链路追踪器，用于记录 Agent 每一步的决策和执行过程，方便调试和复盘
 from app.observability.tracer import Tracer
 # 导入系统提示词构建函数，用于组装 Agent 的身份、规则、工具描述等
-from app.prompts.system_prompt import build_system_prompt
+from app.prompts.system_prompt import build_l1_system_prompt
 
 # ==================== 导入所有工具 ====================
 # 中频受控层：需要 LLM 驱动的业务工具
@@ -27,6 +39,8 @@ from app.tools.comments import FetchCommentsTool          # 评论拉取工具
 from app.tools.echo import EchoTool                       # 回声/调试工具（用于原样返回输入或简单响应）
 from app.tools.metrics import FetchVideoMetricsTool       # 视频指标拉取工具
 
+# 导入回查落盘的大输出
+from app.tools.read_output import ReadOutputTool
 # 导入工具注册表，用于统一管理所有可用工具
 from app.tools.registry import ToolRegistry
 
@@ -62,6 +76,8 @@ def build_registry(llm: LLMClient) -> ToolRegistry:
     # 处理原子工具覆盖不到的边角需求，是 Agent 的"备用方案"
     registry.register(RunBashTool())                 # 执行受限的 Shell 命令（如运行测试、查看 Git 状态）
 
+    # 回查工具
+    registry.register(ReadOutputTool())
     # 返回已注册完成的工具注册表
     return registry
 
@@ -83,27 +99,34 @@ async def run_once(user_input: str) -> None:
     
     # 构建工具注册表，将所有工具注册进去
     registry = build_registry(llm)
+
+    # 创建上下文生成器
+    context = ContextBuilder(
+        l1_system_prompt=build_l1_system_prompt(),
+        l2_code_law_path=None, # 后续可以放CODE_LAW.md
+    )
+    context.todo = default_todo_for_creator_review()
+    summarizer = Summarizer(llm=llm)
     
     # 创建 Agent 运行时引擎
     # llm: 大语言模型客户端
     # tools: 工具注册表，Agent 可以从中调用工具
     # tracer: 链路追踪器，记录执行过程
     # max_steps=10: 最大执行步数，防止 Agent 无限循环（每调用一次工具算一步）
-    runtime = AgentRuntime(llm=llm, tools=registry, tracer=tracer, max_steps=10)
-
-    # --- 2. 构建消息列表 ---
-    messages = [
-        # 系统提示词：告诉 LLM 它的身份、能力、规则和可用工具
-        {"role": "system", "content": build_system_prompt()},
-        # 用户输入：用户的实际问题或指令
-        {"role": "user", "content": user_input},
-    ]
+    runtime = AgentRuntime(
+        llm=llm, 
+        tools=registry, 
+        tracer=tracer, 
+        context=context,
+        summarizer=summarizer,
+        max_steps=10
+        )
 
     # --- 3. 执行 Agent 并输出结果 ---
     try:
         # 调用 Agent 运行时的 run 方法，传入消息列表
         # Agent 会自动进行"思考-行动-观察"的循环，直到得出结论或达到最大步数
-        result = await runtime.run(messages)
+        result = await runtime.run(user_input)
         
         # 打印最终回复结果
         print("\n=== 最终回复 ===")

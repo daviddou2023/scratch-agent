@@ -6,6 +6,9 @@ MVP 阶段从 Mock 文件读取。
 错误码：
 - EMPTY_COMMENTS：评论为空（注意：这是 success，不是 error）
 - VIDEO_NOT_FOUND：视频不存在
+
+变化：
+不在工具内截断，交给runtime的maybe_truncate 统一处理
 """
 
 # 导入 json 模块，用于解析本地 Mock 数据文件中的 JSON 内容
@@ -49,7 +52,8 @@ class FetchCommentsTool(Tool):
     # 工具的唯一标识名称，大模型将通过此名称来调用该工具
     name = "fetch_comments"
     # 工具的功能描述，大模型会根据此描述判断何时需要调用该工具
-    description = "获取指定视频的评论列表，返回原始评论。"
+    # 新增：大输出走截断
+    description = "获取指定视频的评论列表。大输出会自动截断落盘，可用 read_tool_output 回查。"
     # 绑定前面定义的入参校验模型
     args_schema = FetchCommentsArgs
 

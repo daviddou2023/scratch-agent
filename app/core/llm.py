@@ -20,7 +20,7 @@ class LLMClient:
 
     async def chat(self, messages, tools=None, step: int = 0):
 
-        # 定义异步对话方法。
+        # 定义异步对话方法
         # - messages: 对话历史消息列表（遵循 OpenAI 的 role/content 格式）。
         # - tools: 可选参数，用于传入工具定义列表（Function Calling 机制）。
 

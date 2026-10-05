@@ -15,6 +15,18 @@ class Settings:
     openai_base_url: str = os.getenv("OPENAI_BASE_URL", "")
     openai_model: str = os.getenv("OPENAI_MODEL", "")
 
+    # ---- 上下文阈值 ----
+    context_max_tokens: int = int(os.getenv("CONTEXT_MAX_TOKENS", "8000"))
+    context_compress_ratio: float = float(os.getenv("CONTEXT_COMPRESS_RATIO", "0.8"))
+
+    # ---- 工具输出截断 ----
+    tool_output_max_lines: int = int(os.getenv("TOOL_OUTPUT_MAX_LINES", "2000"))
+    tool_output_max_bytes: int = int(os.getenv("TOOL_OUTPUT_MAX_BYTES", "51200"))
+    tool_output_head_tail_lines: int = int(os.getenv("TOOL_OUTPUT_HEAD_TAIL_LINES", "40"))
+
+    # ---- 落盘目录 ----
+    tool_output_dir: str = os.getenv("TOOL_OUTPUT_DIR", "tool-output")
+
 
 # 实例化 Settings 类，创建一个全局单例对象 `settings`。
 # 在项目的其他文件中，只需通过 `from 当前文件 import settings` 即可直接访问配置，

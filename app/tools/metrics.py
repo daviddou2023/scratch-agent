@@ -48,7 +48,7 @@ class FetchVideoMetricsTool(Tool):
     # 工具的唯一标识名称，大模型将通过此名称来调用该工具
     name = "fetch_video_metrics"
     # 工具的功能描述，大模型会根据此描述判断何时需要调用该工具
-    description = "获取指定视频的点赞、转发、评论、播放量等指标。"
+    description = "获取指定视频的点赞、转发、评论、播放量等指标。大输出会自动截断落盘，可用 read_tool_output 回查。"
     # 绑定前面定义的入参校验模型
     args_schema = FetchMetricsArgs
 
