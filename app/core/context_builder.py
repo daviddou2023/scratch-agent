@@ -184,9 +184,21 @@ class ContextBuilder:
         # 保存 Summary，作为只读的"记忆卡片"
         self.summary = summary
         
-        # 保留最近 4 条消息作为上下文
-        # 这样 LLM 可以看到最近的对话，同时早期历史已压缩成 Summary
-        self.l3 = self.l3[-4:]
+        # 优先保留最近一组完整的工具调用消息，避免截断消息配对
+        # 没有工具调用时才保留最近 4 条普通消息
+        last_tool_call_index = None
+        for index in range(len(self.l3) - 1, -1, -1):
+            message = self.l3[index]
+            if message.get("role") == "assistant" and message.get("tool_calls"):
+                last_tool_call_index = index
+                break
+
+        if last_tool_call_index is not None:
+            self.l3 = self.l3[last_tool_call_index:]
+        else:
+            self.l3 = self.l3[-4:]
+            while self.l3 and self.l3[0].get("role") == "tool":
+                self.l3.pop(0)
 
     # ==================== 工具输出 ====================
 

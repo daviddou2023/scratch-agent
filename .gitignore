@@ -5,3 +5,4 @@ __pycache__/
 *.pyc
 app/core/__pycache__/
 traces/
+tool-output/

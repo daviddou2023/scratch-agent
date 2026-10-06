@@ -16,12 +16,12 @@ class Settings:
     openai_model: str = os.getenv("OPENAI_MODEL", "")
 
     # ---- 上下文阈值 ----
-    context_max_tokens: int = int(os.getenv("CONTEXT_MAX_TOKENS", "8000"))
-    context_compress_ratio: float = float(os.getenv("CONTEXT_COMPRESS_RATIO", "0.8"))
+    context_max_tokens: int = int(os.getenv("CONTEXT_MAX_TOKENS", "500"))
+    context_compress_ratio: float = float(os.getenv("CONTEXT_COMPRESS_RATIO", "0.5"))
 
     # ---- 工具输出截断 ----
-    tool_output_max_lines: int = int(os.getenv("TOOL_OUTPUT_MAX_LINES", "2000"))
-    tool_output_max_bytes: int = int(os.getenv("TOOL_OUTPUT_MAX_BYTES", "51200"))
+    tool_output_max_lines: int = int(os.getenv("TOOL_OUTPUT_MAX_LINES", "200"))
+    tool_output_max_bytes: int = int(os.getenv("TOOL_OUTPUT_MAX_BYTES", "20000"))
     tool_output_head_tail_lines: int = int(os.getenv("TOOL_OUTPUT_HEAD_TAIL_LINES", "40"))
 
     # ---- 落盘目录 ----

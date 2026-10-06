@@ -51,7 +51,7 @@ class ReadOutputArgs(BaseModel):
     limit: int = Field(
         200,                                    # 默认值为 200
         ge=1,                                   # 最小值为 1
-        le=2000,                                # 最大值为 2000
+        le=200,                                # 最大值可以自己设定
         description="最多读取行数"
     )
 

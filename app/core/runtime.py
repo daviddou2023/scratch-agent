@@ -71,7 +71,7 @@ class AgentRuntime:
         tracer: Tracer,           # 执行追踪器
         context: ContextBuilder,  # 上下文构建器
         summarizer: Summarizer,   # 摘要压缩器
-        max_steps: int = 10,      # 最大执行步数，防止无限循环
+        max_steps: int = 5000,      # 最大执行步数，防止无限循环
     ) -> None:
         self.llm = llm
         self.tools = tools

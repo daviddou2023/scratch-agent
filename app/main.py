@@ -119,7 +119,7 @@ async def run_once(user_input: str) -> None:
         tracer=tracer, 
         context=context,
         summarizer=summarizer,
-        max_steps=10
+        max_steps=5000
         )
 
     # --- 3. 执行 Agent 并输出结果 ---
