@@ -1,0 +1,366 @@
+{
+  "version": "1.0",
+  "created_at": "2026-10-06",
+  "videos": [
+    {
+      "video_id": "eval_001",
+      "platform": "douyin",
+      "title": "3个技巧让你的视频开头更抓人",
+      "category": "爆款",
+      "metrics": {
+        "views": 120000,
+        "likes": 8600,
+        "shares": 1200,
+        "comments": 430
+      },
+      "comments": [
+        {"id": "c1", "user": "u1", "text": "开头那个转场太厉害了，怎么做的？", "likes": 320},
+        {"id": "c2", "user": "u2", "text": "第三个技巧我试了，真的有用！", "likes": 210},
+        {"id": "c3", "user": "u3", "text": "讲得太快了，没听懂", "likes": 88},
+        {"id": "c4", "user": "u4", "text": "加微信 xxx 领资料", "likes": 0},
+        {"id": "c5", "user": "u5", "text": "这个选题能不能再展开讲讲？", "likes": 150},
+        {"id": "c6", "user": "u6", "text": "哈哈哈哈哈", "likes": 5},
+        {"id": "c7", "user": "u7", "text": "背景音乐叫什么？", "likes": 66},
+        {"id": "c8", "user": "u8", "text": "关注了，期待下期", "likes": 40}
+      ]
+    },
+    {
+      "video_id": "eval_002",
+      "platform": "douyin",
+      "title": "为什么你的视频没人看完",
+      "category": "普通",
+      "metrics": {
+        "views": 45000,
+        "likes": 2100,
+        "shares": 180,
+        "comments": 96
+      },
+      "comments": [
+        {"id": "c9", "user": "u9", "text": "节奏确实有点拖", "likes": 120},
+        {"id": "c10", "user": "u10", "text": "开头十秒没抓住我", "likes": 95},
+        {"id": "c11", "user": "u11", "text": "内容不错但剪辑可以再紧凑", "likes": 60}
+      ]
+    },
+    {
+      "video_id": "eval_003",
+      "platform": "douyin",
+      "title": "新手做自媒体最容易踩的5个坑",
+      "category": "爆款",
+      "metrics": {
+        "views": 158000,
+        "likes": 11200,
+        "shares": 1650,
+        "comments": 520
+      },
+      "comments": [
+        {"id": "c12", "user": "u12", "text": "第二条我踩了整整半年", "likes": 410},
+        {"id": "c13", "user": "u13", "text": "能不能讲讲怎么选题？", "likes": 230},
+        {"id": "c14", "user": "u14", "text": "已收藏，反复看", "likes": 175},
+        {"id": "c15", "user": "u15", "text": "广告太多了吧", "likes": 12},
+        {"id": "c16", "user": "u16", "text": "博主用的什么相机？", "likes": 88}
+      ]
+    },
+    {
+      "video_id": "eval_004",
+      "platform": "douyin",
+      "title": "一条视频涨粉1万的封面公式",
+      "category": "爆款",
+      "metrics": {
+        "views": 97000,
+        "likes": 7300,
+        "shares": 980,
+        "comments": 310
+      },
+      "comments": [
+        {"id": "c17", "user": "u17", "text": "封面确实比标题重要", "likes": 260},
+        {"id": "c18", "user": "u18", "text": "有没有免费做封面的工具？", "likes": 190},
+        {"id": "c19", "user": "u19", "text": "字太大有点土", "likes": 45},
+        {"id": "c20", "user": "u20", "text": "试了，点击率确实高了", "likes": 130}
+      ]
+    },
+    {
+      "video_id": "eval_005",
+      "platform": "douyin",
+      "title": "剪辑软件保姆级教程",
+      "category": "普通",
+      "metrics": {
+        "views": 62000,
+        "likes": 3400,
+        "shares": 420,
+        "comments": 178
+      },
+      "comments": [
+        {"id": "c21", "user": "u21", "text": "讲得太细了，适合新手", "likes": 150},
+        {"id": "c22", "user": "u22", "text": "能不能出PR版？", "likes": 92},
+        {"id": "c23", "user": "u23", "text": "中间有一段卡了", "likes": 28}
+      ]
+    },
+    {
+      "video_id": "eval_006",
+      "platform": "douyin",
+      "title": "别再乱发视频了，发布时间很重要",
+      "category": "普通",
+      "metrics": {
+        "views": 38000,
+        "likes": 1900,
+        "shares": 160,
+        "comments": 84
+      },
+      "comments": [
+        {"id": "c24", "user": "u24", "text": "我晚上发反而流量好", "likes": 76},
+        {"id": "c25", "user": "u25", "text": "感觉还是内容更重要", "likes": 63},
+        {"id": "c26", "user": "u26", "text": "不同赛道发布时间不一样吧", "likes": 51}
+      ]
+    },
+    {
+      "video_id": "eval_007",
+      "platform": "douyin",
+      "title": "普通人做短视频还能赚钱吗",
+      "category": "爆款",
+      "metrics": {
+        "views": 210000,
+        "likes": 13500,
+        "shares": 2100,
+        "comments": 680
+      },
+      "comments": [
+        {"id": "c27", "user": "u27", "text": "现在入场是不是晚了？", "likes": 380},
+        {"id": "c28", "user": "u28", "text": "变现路径讲清楚了", "likes": 290},
+        {"id": "c29", "user": "u29", "text": "别制造焦虑了", "likes": 110},
+        {"id": "c30", "user": "u30", "text": "已关注，想跟着做", "likes": 160},
+        {"id": "c31", "user": "u31", "text": "副业真的能跑通吗", "likes": 200}
+      ]
+    },
+    {
+      "video_id": "eval_008",
+      "platform": "douyin",
+      "title": "视频完播率太低怎么办",
+      "category": "普通",
+      "metrics": {
+        "views": 51000,
+        "likes": 2800,
+        "shares": 210,
+        "comments": 102
+      },
+      "comments": [
+        {"id": "c32", "user": "u32", "text": "前3秒确实最关键", "likes": 88},
+        {"id": "c33", "user": "u33", "text": "我一般看到一半就划走", "likes": 72},
+        {"id": "c34", "user": "u34", "text": "有没有数据后台截图？", "likes": 40}
+      ]
+    },
+    {
+      "video_id": "eval_009",
+      "platform": "douyin",
+      "title": "账号定位一次讲清楚",
+      "category": "爆款",
+      "metrics": {
+        "views": 135000,
+        "likes": 9800,
+        "shares": 1420,
+        "comments": 470
+      },
+      "comments": [
+        {"id": "c35", "user": "u35", "text": "终于知道为什么没流量了", "likes": 310},
+        {"id": "c36", "user": "u36", "text": "定位太窄会不会没内容？", "likes": 180},
+        {"id": "c37", "user": "u37", "text": "能帮看看我的账号吗", "likes": 220},
+        {"id": "c38", "user": "u38", "text": "讲得很清楚，已转发", "likes": 95}
+      ]
+    },
+    {
+      "video_id": "eval_010",
+      "platform": "douyin",
+      "title": "手机拍视频够用吗",
+      "category": "普通",
+      "metrics": {
+        "views": 72000,
+        "likes": 4100,
+        "shares": 380,
+        "comments": 190
+      },
+      "comments": [
+        {"id": "c39", "user": "u39", "text": "手机完全够用，别焦虑设备", "likes": 160},
+        {"id": "c40", "user": "u40", "text": "那灯光要不要买？", "likes": 88},
+        {"id": "c41", "user": "u41", "text": "收音比画质更重要", "likes": 120}
+      ]
+    },
+    {
+      "video_id": "eval_011",
+      "platform": "douyin",
+      "title": "爆款标题的10种写法",
+      "category": "爆款",
+      "metrics": {
+        "views": 105000,
+        "likes": 7900,
+        "shares": 1100,
+        "comments": 340
+      },
+      "comments": [
+        {"id": "c42", "user": "u42", "text": "第7种真的好用", "likes": 240},
+        {"id": "c43", "user": "u43", "text": "会不会太标题党？", "likes": 130},
+        {"id": "c44", "user": "u44", "text": "求模板", "likes": 190},
+        {"id": "c45", "user": "u45", "text": "收藏了慢慢练", "likes": 88}
+      ]
+    },
+    {
+      "video_id": "eval_012",
+      "platform": "douyin",
+      "title": "为什么不建议新手买课程",
+      "category": "普通",
+      "metrics": {
+        "views": 88000,
+        "likes": 5200,
+        "shares": 620,
+        "comments": 260
+      },
+      "comments": [
+        {"id": "c46", "user": "u46", "text": "说得太对了", "likes": 210},
+        {"id": "c47", "user": "u47", "text": "那怎么系统学习？", "likes": 140},
+        {"id": "c48", "user": "u48", "text": "但有些课确实有用吧", "likes": 55},
+        {"id": "c49", "user": "u49", "text": "先做再学，别一直准备", "likes": 170}
+      ]
+    },
+    {
+      "video_id": "eval_013",
+      "platform": "douyin",
+      "title": "一条视频从选题到发布全流程",
+      "category": "爆款",
+      "metrics": {
+        "views": 142000,
+        "likes": 10100,
+        "shares": 1580,
+        "comments": 490
+      },
+      "comments": [
+        {"id": "c50", "user": "u50", "text": "流程很完整，照着做就行", "likes": 330},
+        {"id": "c51", "user": "u51", "text": "选题那步能不能再细一点", "likes": 200},
+        {"id": "c52", "user": "u52", "text": "发布前检查清单很有用", "likes": 180},
+        {"id": "c53", "user": "u53", "text": "拍一条要多久？", "likes": 92}
+      ]
+    },
+    {
+      "video_id": "eval_014",
+      "platform": "douyin",
+      "title": "评论区互动也能提升流量",
+      "category": "普通",
+      "metrics": {
+        "views": 33000,
+        "likes": 1700,
+        "shares": 140,
+        "comments": 78
+      },
+      "comments": [
+        {"id": "c54", "user": "u54", "text": "原来回复评论也有讲究", "likes": 66},
+        {"id": "c55", "user": "u55", "text": "我每条都回，效果一般", "likes": 48},
+        {"id": "c56", "user": "u56", "text": "引导评论的话术有吗", "likes": 52}
+      ]
+    },
+    {
+      "video_id": "eval_015",
+      "platform": "douyin",
+      "title": "不露脸也能做自媒体吗",
+      "category": "爆款",
+      "metrics": {
+        "views": 176000,
+        "likes": 12400,
+        "shares": 1900,
+        "comments": 560
+      },
+      "comments": [
+        {"id": "c57", "user": "u57", "text": "我就是不露脸，照样有流量", "likes": 420},
+        {"id": "c58", "user": "u58", "text": "那用什么形式？", "likes": 260},
+        {"id": "c59", "user": "u59", "text": "声音好听很重要", "likes": 190},
+        {"id": "c60", "user": "u60", "text": "适合社恐", "likes": 310},
+        {"id": "c61", "user": "u61", "text": "动画类也可以不露脸", "likes": 140}
+      ]
+    },
+    {
+      "video_id": "eval_016",
+      "platform": "douyin",
+      "title": "新手第一条视频拍什么",
+      "category": "普通",
+      "metrics": {
+        "views": 56000,
+        "likes": 3200,
+        "shares": 290,
+        "comments": 130
+      },
+      "comments": [
+        {"id": "c62", "user": "u62", "text": "先拍自我介绍就行", "likes": 110},
+        {"id": "c63", "user": "u63", "text": "我还是不敢发", "likes": 78},
+        {"id": "c64", "user": "u64", "text": "拍完别纠结，先发", "likes": 95}
+      ]
+    },
+    {
+      "video_id": "eval_017",
+      "platform": "douyin",
+      "title": "短视频脚本怎么写",
+      "category": "爆款",
+      "metrics": {
+        "views": 118000,
+        "likes": 8900,
+        "shares": 1250,
+        "comments": 410
+      },
+      "comments": [
+        {"id": "c65", "user": "u65", "text": "脚本模板能发一份吗", "likes": 280},
+        {"id": "c66", "user": "u66", "text": "我写脚本要两小时，太慢了", "likes": 160},
+        {"id": "c67", "user": "u67", "text": "结构讲得很清楚", "likes": 210},
+        {"id": "c68", "user": "u68", "text": "开头钩子最重要", "likes": 140}
+      ]
+    },
+    {
+      "video_id": "eval_018",
+      "platform": "douyin",
+      "title": "账号被限流怎么办",
+      "category": "普通",
+      "metrics": {
+        "views": 91000,
+        "likes": 5600,
+        "shares": 540,
+        "comments": 230
+      },
+      "comments": [
+        {"id": "c69", "user": "u69", "text": "我最近流量也掉了", "likes": 180},
+        {"id": "c70", "user": "u70", "text": "先检查有没有违规", "likes": 130},
+        {"id": "c71", "user": "u71", "text": "很多时候是内容问题，不是限流", "likes": 200},
+        {"id": "c72", "user": "u72", "text": "换号重开有用吗", "likes": 88}
+      ]
+    },
+    {
+      "video_id": "eval_019",
+      "platform": "douyin",
+      "title": "小众赛道反而更容易起号",
+      "category": "爆款",
+      "metrics": {
+        "views": 163000,
+        "likes": 11700,
+        "shares": 1780,
+        "comments": 540
+      },
+      "comments": [
+        {"id": "c73", "user": "u73", "text": "确实，竞争小更容易被看到", "likes": 360},
+        {"id": "c74", "user": "u74", "text": "但小众会不会没变现？", "likes": 240},
+        {"id": "c75", "user": "u75", "text": "我做的赛道特别窄，粉丝很精准", "likes": 290},
+        {"id": "c76", "user": "u76", "text": "怎么判断赛道有没有潜力", "likes": 190},
+        {"id": "c77", "user": "u77", "text": "别盲目追热门", "likes": 150}
+      ]
+    },
+    {
+      "video_id": "eval_020",
+      "platform": "douyin",
+      "title": "坚持日更真的有必要吗",
+      "category": "普通",
+      "metrics": {
+        "views": 47000,
+        "likes": 2600,
+        "shares": 200,
+        "comments": 110
+      },
+      "comments": [
+        {"id": "c78", "user": "u78", "text": "质量比频率重要", "likes": 85},
+        {"id": "c79", "user": "u79", "text": "日更太累了，坚持不下来", "likes": 62},
+        {"id": "c80", "user": "u80", "text": "一周两三条也够了吧", "likes": 48}
+      ]
+    }
+  ]
+}
