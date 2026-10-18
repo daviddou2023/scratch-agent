@@ -1,0 +1,185 @@
+{
+  "version": "1.0",
+  "labels": {
+    "eval_001": {
+      "hot_topics": ["开头转场技巧", "第三个技巧效果", "选题延展"],
+      "emotions": {"正面": 0.6, "中性": 0.3, "负面": 0.1},
+      "high_like_opinions": ["开头转场很厉害", "第三个技巧有用"],
+      "audience_questions": ["转场怎么做的", "背景音乐叫什么", "选题能不能展开"],
+      "valid_comment_count": 6,
+      "should_filter_ads": 1,
+      "expected_data_gaps": []
+    },
+    "eval_002": {
+      "hot_topics": ["节奏拖沓", "开头吸引力不足", "剪辑紧凑度"],
+      "emotions": {"正面": 0.2, "中性": 0.5, "负面": 0.3},
+      "high_like_opinions": ["节奏确实有点拖", "开头十秒没抓住我"],
+      "audience_questions": [],
+      "valid_comment_count": 3,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    },
+    "eval_003": {
+      "hot_topics": ["踩坑经历", "选题方法", "拍摄设备"],
+      "emotions": {"正面": 0.6, "中性": 0.3, "负面": 0.1},
+      "high_like_opinions": ["第二条坑踩了半年", "已收藏会反复看"],
+      "audience_questions": ["怎么选题", "用的什么相机"],
+      "valid_comment_count": 4,
+      "should_filter_ads": 1,
+      "expected_data_gaps": []
+    },
+    "eval_004": {
+      "hot_topics": ["封面设计", "封面与标题", "点击率提升"],
+      "emotions": {"正面": 0.5, "中性": 0.3, "负面": 0.2},
+      "high_like_opinions": ["封面比标题重要", "试用后点击率提高"],
+      "audience_questions": ["有没有免费做封面的工具"],
+      "valid_comment_count": 4,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    },
+    "eval_005": {
+      "hot_topics": ["新手剪辑教程", "PR版本需求", "视频卡顿"],
+      "emotions": {"正面": 0.6, "中性": 0.2, "负面": 0.2},
+      "high_like_opinions": ["教程讲得细，适合新手"],
+      "audience_questions": ["能不能出PR版"],
+      "valid_comment_count": 3,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    },
+    "eval_006": {
+      "hot_topics": ["发布时间", "内容质量", "赛道差异"],
+      "emotions": {"正面": 0.4, "中性": 0.5, "负面": 0.1},
+      "high_like_opinions": ["晚上发布流量更好"],
+      "audience_questions": ["不同赛道的发布时间是否不同"],
+      "valid_comment_count": 3,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    },
+    "eval_007": {
+      "hot_topics": ["短视频变现", "入场时机", "副业可行性"],
+      "emotions": {"正面": 0.6, "中性": 0.2, "负面": 0.2},
+      "high_like_opinions": ["变现路径讲清楚了", "已关注想跟着做"],
+      "audience_questions": ["现在入场是不是晚了", "副业真的能跑通吗"],
+      "valid_comment_count": 5,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    },
+    "eval_008": {
+      "hot_topics": ["前三秒", "完播率", "数据后台"],
+      "emotions": {"正面": 0.2, "中性": 0.5, "负面": 0.3},
+      "high_like_opinions": ["前三秒最关键"],
+      "audience_questions": ["有没有数据后台截图"],
+      "valid_comment_count": 3,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    },
+    "eval_009": {
+      "hot_topics": ["账号定位", "流量问题", "垂直内容"],
+      "emotions": {"正面": 0.7, "中性": 0.2, "负面": 0.1},
+      "high_like_opinions": ["终于知道为什么没流量了", "讲得很清楚"],
+      "audience_questions": ["定位太窄会不会没内容", "能帮看看账号吗"],
+      "valid_comment_count": 4,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    },
+    "eval_010": {
+      "hot_topics": ["手机拍摄", "灯光设备", "收音质量"],
+      "emotions": {"正面": 0.7, "中性": 0.2, "负面": 0.1},
+      "high_like_opinions": ["手机完全够用", "收音比画质更重要"],
+      "audience_questions": ["灯光要不要买"],
+      "valid_comment_count": 3,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    },
+    "eval_011": {
+      "hot_topics": ["爆款标题", "标题党风险", "标题模板"],
+      "emotions": {"正面": 0.6, "中性": 0.3, "负面": 0.1},
+      "high_like_opinions": ["第7种标题写法好用", "收藏后慢慢练"],
+      "audience_questions": ["会不会太标题党", "有没有标题模板"],
+      "valid_comment_count": 4,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    },
+    "eval_012": {
+      "hot_topics": ["课程购买", "系统学习", "先做后学"],
+      "emotions": {"正面": 0.5, "中性": 0.3, "负面": 0.2},
+      "high_like_opinions": ["观点说得很对", "先做再学"],
+      "audience_questions": ["怎么系统学习"],
+      "valid_comment_count": 4,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    },
+    "eval_013": {
+      "hot_topics": ["视频制作流程", "选题细化", "发布前检查"],
+      "emotions": {"正面": 0.8, "中性": 0.2, "负面": 0.0},
+      "high_like_opinions": ["流程完整，照着做就行", "发布前检查清单有用"],
+      "audience_questions": ["选题步骤能不能再细一点", "拍一条要多久"],
+      "valid_comment_count": 4,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    },
+    "eval_014": {
+      "hot_topics": ["回复评论", "评论区互动", "引导评论话术"],
+      "emotions": {"正面": 0.4, "中性": 0.4, "负面": 0.2},
+      "high_like_opinions": ["回复评论也有讲究"],
+      "audience_questions": ["有没有引导评论的话术"],
+      "valid_comment_count": 3,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    },
+    "eval_015": {
+      "hot_topics": ["不露脸创作", "内容形式", "声音与动画"],
+      "emotions": {"正面": 0.8, "中性": 0.2, "负面": 0.0},
+      "high_like_opinions": ["不露脸也能有流量", "适合社恐"],
+      "audience_questions": ["不露脸可以用什么形式"],
+      "valid_comment_count": 5,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    },
+    "eval_016": {
+      "hot_topics": ["新手第一条视频", "发布恐惧", "先行动"],
+      "emotions": {"正面": 0.5, "中性": 0.3, "负面": 0.2},
+      "high_like_opinions": ["拍完别纠结，先发"],
+      "audience_questions": [],
+      "valid_comment_count": 3,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    },
+    "eval_017": {
+      "hot_topics": ["短视频脚本", "脚本模板", "开头钩子"],
+      "emotions": {"正面": 0.7, "中性": 0.2, "负面": 0.1},
+      "high_like_opinions": ["结构讲得很清楚", "开头钩子最重要"],
+      "audience_questions": ["能发一份脚本模板吗"],
+      "valid_comment_count": 4,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    },
+    "eval_018": {
+      "hot_topics": ["账号限流", "违规检查", "内容质量"],
+      "emotions": {"正面": 0.2, "中性": 0.4, "负面": 0.4},
+      "high_like_opinions": ["很多时候是内容问题，不是限流"],
+      "audience_questions": ["换号重开有用吗"],
+      "valid_comment_count": 4,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    },
+    "eval_019": {
+      "hot_topics": ["小众赛道", "竞争程度", "赛道变现"],
+      "emotions": {"正面": 0.6, "中性": 0.2, "负面": 0.2},
+      "high_like_opinions": ["小众赛道更容易被看到", "粉丝精准"],
+      "audience_questions": ["小众赛道会不会没变现", "怎么判断赛道潜力"],
+      "valid_comment_count": 5,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    },
+    "eval_020": {
+      "hot_topics": ["更新频率", "内容质量", "持续创作"],
+      "emotions": {"正面": 0.3, "中性": 0.4, "负面": 0.3},
+      "high_like_opinions": ["质量比频率重要", "一周两三条也够"],
+      "audience_questions": [],
+      "valid_comment_count": 3,
+      "should_filter_ads": 0,
+      "expected_data_gaps": []
+    }
+  }
+}

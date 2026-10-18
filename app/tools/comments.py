@@ -27,6 +27,7 @@ from app.core.schemas import ToolResponse
 from app.tools.base import Tool
 # 导入封装好的标准响应辅助函数：成功(ok)、失败(fail)
 from app.tools.response import fail, ok
+from app.platforms.bilibili import BilibiliProvider, parse_bilibili_ref
 
 # 定义本地 Mock 评论数据文件的存储路径（指向 data/mock/comments.json）
 MOCK_PATH = Path("data/mock/comments.json")
@@ -57,6 +58,9 @@ class FetchCommentsTool(Tool):
     # 绑定前面定义的入参校验模型
     args_schema = FetchCommentsArgs
 
+    def __init__(self, bilibili_provider: BilibiliProvider | None = None) -> None:
+        self.bilibili_provider = bilibili_provider
+
     async def run(self, video_id: str, limit: int = 500) -> ToolResponse:
         """
         执行工具的核心逻辑。
@@ -72,6 +76,10 @@ class FetchCommentsTool(Tool):
         # 检查传入的 video_id 是否为空或纯空白字符，如果是则返回失败响应
         if not video_id.strip():
             return fail(ErrorCode.EMPTY_INPUT, "video_id 不能为空")
+
+        if parse_bilibili_ref(video_id) is not None:
+            provider = self.bilibili_provider or BilibiliProvider()
+            return await provider.fetch_comments(video_id, limit)
 
         # --- 2. Mock 文件存在性检查 ---
         # 检查本地 Mock 评论文件是否存在，如果不存在则返回未实现的错误

@@ -60,6 +60,7 @@ class ContextBuilder:
         
         # Todo：当前待办事项列表，用于生成 Todo Recap
         self.todo: TodoList | None = None
+        self.tool_data: dict[str, dict[str, Any]] = {}
 
     def _load_l2(self, path: str | None) -> str:
         """

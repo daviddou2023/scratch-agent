@@ -6,3 +6,4 @@ __pycache__/
 app/core/__pycache__/
 traces/
 tool-output/
+reports/

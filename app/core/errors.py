@@ -12,6 +12,7 @@
 
 
 class ErrorCode:
+    BILIBILI_API_ERROR = "BILIBILI_API_ERROR"
     # ---- 输入类 ----
     EMPTY_INPUT = "EMPTY_INPUT"                 # 输入为空
     INVALID_ARGUMENT = "INVALID_ARGUMENT"       # 参数非法

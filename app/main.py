@@ -1,7 +1,10 @@
 # 导入 asyncio 模块，用于运行异步函数（async/await）
 import asyncio
+import json
 # 导入 sys 模块，用于读取命令行参数（sys.argv）
 import sys
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
 # 导入全局配置文件
 from app.core.config import settings
@@ -43,10 +46,60 @@ from app.tools.metrics import FetchVideoMetricsTool       # 视频指标拉取�
 from app.tools.read_output import ReadOutputTool
 # 导入工具注册表，用于统一管理所有可用工具
 from app.tools.registry import ToolRegistry
+from app.platforms.bilibili import BilibiliProvider, parse_bilibili_ref
+
+
+REPORTS_DIR = Path("reports")
+
+
+def _find_video_metrics(context: ContextBuilder) -> dict:
+    cached_metrics = context.tool_data.get("fetch_video_metrics")
+    if isinstance(cached_metrics, dict) and cached_metrics.get("video_id"):
+        return cached_metrics
+
+    for message in reversed(context.l3):
+        if message.get("role") != "tool":
+            continue
+        try:
+            payload = json.loads(message.get("content", "{}"))
+        except json.JSONDecodeError:
+            continue
+        data = payload.get("data", {})
+        if data.get("platform") == "bilibili" and data.get("video_id"):
+            return data
+    return {}
+
+
+def _format_publish_date(value: object) -> str | None:
+    if isinstance(value, (int, float)):
+        shanghai = timezone(timedelta(hours=8))
+        return datetime.fromtimestamp(value, tz=shanghai).strftime("%Y-%m-%d")
+    if isinstance(value, str) and value:
+        try:
+            parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+            if parsed.tzinfo is not None:
+                parsed = parsed.astimezone(timezone(timedelta(hours=8)))
+            return parsed.strftime("%Y-%m-%d")
+        except ValueError:
+            return value[:10]
+    return None
+
+
+def _save_markdown_report(result: str, context: ContextBuilder) -> Path | None:
+    metrics = _find_video_metrics(context)
+    bvid = metrics.get("video_id")
+    publish_date = _format_publish_date(metrics.get("published_at"))
+    if not bvid or not publish_date:
+        return None
+
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    path = REPORTS_DIR / f"{bvid}-{publish_date}.md"
+    path.write_text(result, encoding="utf-8")
+    return path
 
 
 # ==================== 工具注册函数 ====================
-def build_registry(llm: LLMClient) -> ToolRegistry:
+def build_registry(llm: LLMClient, bilibili_provider=None) -> ToolRegistry:
     """
     构建工具注册表，将所有工具按"三层架构"注册进去。
     
@@ -62,8 +115,8 @@ def build_registry(llm: LLMClient) -> ToolRegistry:
     # --- 高频原子层：基础数据获取与处理工具 ---
     # 这些工具不依赖 LLM，执行速度快，是 Agent 的"手脚"
     registry.register(EchoTool())                    # 回声工具：用于调试或简单响应
-    registry.register(FetchVideoMetricsTool())        # 拉取视频的播放量、点赞量等核心指标
-    registry.register(FetchCommentsTool())            # 拉取视频的评论区原始数据
+    registry.register(FetchVideoMetricsTool(bilibili_provider))
+    registry.register(FetchCommentsTool(bilibili_provider))
     registry.register(CleanCommentsTool())            # 清洗评论：去重、去广告、脱敏
 
     # --- 中频受控层：需要 LLM 驱动的业务工具 ---
@@ -98,7 +151,10 @@ async def run_once(user_input: str) -> None:
     llm = LLMClient(tracer=tracer)
     
     # 构建工具注册表，将所有工具注册进去
-    registry = build_registry(llm)
+    bilibili_provider = (
+        BilibiliProvider() if parse_bilibili_ref(user_input) is not None else None
+    )
+    registry = build_registry(llm, bilibili_provider)
 
     # 创建上下文生成器
     context = ContextBuilder(
@@ -127,10 +183,13 @@ async def run_once(user_input: str) -> None:
         # 调用 Agent 运行时的 run 方法，传入消息列表
         # Agent 会自动进行"思考-行动-观察"的循环，直到得出结论或达到最大步数
         result = await runtime.run(user_input)
+        report_path = _save_markdown_report(result, context)
         
         # 打印最终回复结果
         print("\n=== 最终回复 ===")
         print(result)
+        if report_path:
+            print(f"\n=== Markdown report saved ===\n{report_path}")
         
     finally:
         # 无论执行成功还是失败，都保存追踪数据

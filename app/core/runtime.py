@@ -288,6 +288,11 @@ class AgentRuntime:
                 response_dict["status"] = "partial"
 
         # 记录工具结果到 Tracer
+        if tool_name == "fetch_video_metrics" and response_dict.get("status") in {"success", "partial"}:
+            data = response_dict.get("data")
+            if isinstance(data, dict):
+                self.context.tool_data[tool_name] = data
+
         todo_index = TODO_STEP_BY_TOOL.get(tool_name)
         if (
             response_dict.get("status") == "success"

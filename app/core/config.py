@@ -26,6 +26,11 @@ class Settings:
 
     # ---- 落盘目录 ----
     tool_output_dir: str = os.getenv("TOOL_OUTPUT_DIR", "tool-output")
+    bilibili_timeout: float = float(os.getenv("BILIBILI_TIMEOUT", "15"))
+    bilibili_user_agent: str = os.getenv(
+        "BILIBILI_USER_AGENT",
+        "EchoReview/1.0 (+https://www.bilibili.com/)",
+    )
 
 
 # 实例化 Settings 类，创建一个全局单例对象 `settings`。
