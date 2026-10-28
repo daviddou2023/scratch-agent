@@ -4,7 +4,6 @@ import argparse
 import asyncio
 from pathlib import Path
 
-from app.prompts.system_prompt import build_l1_system_prompt
 from eval.dataset_loader import load_dataset, load_gold_labels
 from eval.runner import run_dataset
 
@@ -60,7 +59,6 @@ async def main() -> None:
     await run_dataset(
         videos=videos,
         labels=labels.labels,
-        system_prompt=build_l1_system_prompt(),
         tag=args.tag,
     )
 

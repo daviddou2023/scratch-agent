@@ -39,10 +39,10 @@ async def run_experiment(
     print(f"视频数：{len(videos)}")
 
     baseline_results = await run_dataset(
-        videos, labels.labels, baseline_prompt, tag=f"{config.name}_baseline"
+        videos, labels.labels, tag=f"{config.name}_baseline"
     )
     candidate_results = await run_dataset(
-        videos, labels.labels, candidate_prompt, tag=f"{config.name}_candidate"
+        videos, labels.labels, tag=f"{config.name}_candidate"
     )
 
     baseline_scores = aggregate_scores(baseline_results)
